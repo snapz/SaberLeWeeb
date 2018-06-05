@@ -34,7 +34,14 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="<?=URL?>home/index">Accueil</a>
-                        </li>   
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?=URL?>blog/index">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="<?=URL?>manga/all">Manga</a>
+                        </li>
+                        <!-- je manges mon chat
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Mangas
@@ -45,6 +52,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                                 <a class="dropdown-item" href="<?=URL?>manga/add">Ajouter un manga</a>
                             </div>
                         </li>
+                        -->
                     </ul>
                 </div>
             </div>

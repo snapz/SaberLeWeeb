@@ -10,12 +10,12 @@
         <?php if ( !isset($ticket) ) { ?>
         <div class="alert alert-danger" role="alert">
             <u><b>Mince !</b></u><br />
-            Aucun manga indiqué !
+            Aucun article indiqué !
         </div>
         <?php } else if (isset($ticket) && empty($ticket) ) { ?>
         <div class="alert alert-danger" role="alert">
             <u><b>Mince !</b></u><br />
-            Le manga indiqué n'existe pas !
+            L'article indiqué n'existe pas !
         </div>
         <?php } else { ?>
         <h5><a href="<?=URL?>blog/index" title="retourner à l'index">Tout les billets</a> > <?php echo $ticket['title'] ?></h5>

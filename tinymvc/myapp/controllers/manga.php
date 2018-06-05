@@ -11,10 +11,10 @@ class Manga_Controller extends TinyMVC_Controller
 {
     function all()
     {
-        $this->load->model('Query_Model', 'query');
-        $data = $this->query->get_all_manga(200);
+        $this->load->model('Manga_Model', 'manga');
+        $data = $this->manga->get_all_manga(200);
         $this->view->assign('mangas', $data);
-        $content = $this->view->fetch('all_view');
+        $content = $this->view->fetch('manga_all_view');
         $this->view->assign('content', $content);
         $this->view->display('layout_view');
     }
@@ -42,14 +42,14 @@ class Manga_Controller extends TinyMVC_Controller
                 $editor     = $_POST['editor'];
                 $type       = $_POST['type'];
 
-                $this->load->model('Query_Model', 'query');
-                $this->query->add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
+                $this->load->model('Manga_Model', 'manga');
+                $this->manga->add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
                 $this->view->assign('success', true);
             else : 
                 $this->view->assign('success', false);
             endif;
         endif;
-        $content = $this->view->fetch('add_view');
+        $content = $this->view->fetch('manga_add_view');
         $this->view->assign('content', $content);
         $this->view->display('layout_view');
 
@@ -58,14 +58,14 @@ class Manga_Controller extends TinyMVC_Controller
     function remove()
     {
         $this->load->library('uri');
-        $this->load->model('Query_Model', 'query');
+        $this->load->model('Manga_Model', 'manga');
 
         $id = (int) $this->uri->segment(4);
         if ( !empty($id) ) :
-            $success = $this->query->remove_manga($id);
+            $success = $this->manga->remove_manga($id);
             $this->view->assign('success', $success);
         endif;
-        $content = $this->view->fetch('remove_view');
+        $content = $this->view->fetch('manga_remove_view');
         $this->view->assign('content', $content);
         $this->view->display('layout_view');
     }
@@ -73,11 +73,11 @@ class Manga_Controller extends TinyMVC_Controller
     function edit()
     {
         $this->load->library('uri');
-        $this->load->model('Query_Model', 'query');
+        $this->load->model('Manga_Model', 'manga');
 
         $id = (int) $this->uri->segment(4);
         if ( !empty($id) ) :
-            $manga = $this->query->get_manga($id);
+            $manga = $this->manga->get_manga($id);
             $this->view->assign('manga', $manga);
             if ( isset($_POST['edit_manga']) ) :
                 if ( 
@@ -107,7 +107,7 @@ class Manga_Controller extends TinyMVC_Controller
                 endif;
             endif;
         endif;
-        $content = $this->view->fetch('edit_view');
+        $content = $this->view->fetch('manga_edit_view');
         $this->view->assign('content', $content);
         $this->view->display('layout_view');
     }

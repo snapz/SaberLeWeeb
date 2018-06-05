@@ -1,6 +1,6 @@
 <?php
 
-class Query_Model extends TinyMVC_Model
+class Manga_Model extends TinyMVC_Model
 {
     function get_all_manga($limit)
     {
