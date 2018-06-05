@@ -6,14 +6,14 @@ class Query_Model extends TinyMVC_Model
     {
         $this->db->select('*');
         $this->db->from('manga');
-        $this->db->orderby('status ASC');
+        $this->db->orderby('status ASC, title ASC');
         $this->db->limit($limit);
         $result = $this->db->query_all();
         $data = array();
         foreach($result as $key => $manga){
             $data[$key]['id']           = $manga['id'];
             $data[$key]['title']        = $manga['title'];
-            $data[$key]['date']         = $manga['date'];
+            $data[$key]['date']         = strcmp($manga['date'], "0000-00-00") == 0 ? "" : $manga['date'];
             $data[$key]['status']       = self::switch_status($manga['status']);
             $data[$key]['published']    = $manga['published_tomes'];
             $data[$key]['owned']        = $manga['owned_tomes'];

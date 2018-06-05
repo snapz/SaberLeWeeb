@@ -12,8 +12,8 @@
             <h2 id="what">Qu'est-ce que <?=NAME?> ?</h2>
             <hr />
             <p class="lead">
-            <i><?=NAME?></i> vous proposes une analyse permettant de vérifier rapidement l'authenticité d'un site.<br />
-            La force de <i><?=NAME?></i> est qu'il est communautaire. Vous pouvez très facilement avoir accès aux sites précédemment analysé par les autres utilisateurs.<br />
+                <i><?=NAME?></i> est à la base un site me permettant de gérer ma collection de manga et ainsi gérer mes achats, les nouveautés ainsi que les sorties de mes séries favorites.<br />
+                J'y ajoute aussi du contenu comme des reviews, des articles explicatifs concernant les mangas ainsi que les animes. <i><?=NAME?></i> est un peu mon fourre-tout, un endroit où mes idées et mes avis sont écrit noir sur blanc.
             </p>
         </div>
         </div>
@@ -24,21 +24,28 @@
     <div class="container">
         <div class="row">
         <div class="col-lg-8 mx-auto">
-            <h2>Comment ça marche ?</h2>
+            <h2>Qui suis-je ?</h2>
             <hr />
             <p class="lead">
-            <i><?=NAME?></i> repose sur un algorithme d'analyse d'URL crée par notre équipe.<br />
-            Sur la <a href="<?=URL?>home/index" class="link">page d'accueil</a>, vous trouverez un petit encart avec un formulaire.<br />
-            Il vous suffit simplement de copier/coller un lien qui vous semble suspect et <i><?=NAME?></i> s'occupe du reste.
+                Je suis Riki, <i>Damien</i> de mon vrai prénom. Avant tout fan de japanimation et collectionneur de manga, j'aime discuter et échanger sur ces deux domaines.<br />
+                C'est bien pour cela que j'ai créer Riki no Kage, dans le but d'y exposer et partager mes connaissance sur ce domaine.<br />
+                Je suis aussi un joueur invetéré, je passe une grosse partie de mon temps libre sur les jeux-vidéos, seul ou bien avec mes amis.<br />
             </p>
-            <h4>Et l'analyse ?</h4>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h2>Remerciements</h2>
+            <hr />
             <p class="lead">
-            L'analyse repose sur un système de <u>score</u>. Plus l'URL contient de critère semblable à un site de phishing (comme un nombre élevé de <b>-</b>), plus le score augmente.<br />
-            Une fois l'analyse terminé, nous enregistrons le score et vous nous l'affichons. 
-            <div class="alert alert-warning" role="alert">
-                <u>Attention, le score est donné à titre indicatif !</u> L'algorithme n'est pas infaillible et peut générer des <i>faux positifs</i> ou des <i>faux négatifs</i>.<br />
-                A vous ensuite d'utiliser votre bon sens pour déterminer si oui ou non le site est authentique.
-            </div>
+                Tout d'abord un grand merci à <b>Zaxner</b>, le génie derrière ce site Internet sans qui toute la conception ainsi que le code de ce présent site n'aurais pu être possible.<br />
+                Et ensuite à certaines personne qui se reconnaitront qui jour après jour me donne la force de persévérer dans mes projets et mes idées.<br />
+                Et finalement, merci aux lecteurs de mon blog !
             </p>
         </div>
         </div>
