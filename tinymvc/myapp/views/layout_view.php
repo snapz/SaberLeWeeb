@@ -68,7 +68,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     </div>
                     <div class="col-sm">
                         <p class="m-0 text-right">
-                            <a href="<?=URL?>" class="text-dark">Blog</a>
+                            <a href="<?=URL?>blog/index" class="text-dark">Blog</a>
                             &bull;
                             <a href="<?=URL?>manga/all" class="text-dark">Collection</a>
                             &bull;

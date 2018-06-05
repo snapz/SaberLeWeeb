@@ -4,7 +4,7 @@
  * home.php
  *
  * default application controller
- * @author		Dysta
+ * @author Zaxner
  */
 
 class Home_Controller extends TinyMVC_Controller

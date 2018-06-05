@@ -4,7 +4,7 @@
  * manga.php
  *
  * manga controller
- * @author		Dysta
+ * @author Zaxner
  */
 
 class Manga_Controller extends TinyMVC_Controller
@@ -82,7 +82,7 @@ class Manga_Controller extends TinyMVC_Controller
             if ( isset($_POST['edit_manga']) ) :
                 if ( 
                     isset($_POST['title']) && !empty($_POST['title']) &&
-                    isset($_POST['date-year']) &&
+                    isset($_POST['date-year']) && isset($_POST['status']) &&
                     isset($_POST['date-month']) && isset($_POST['date-day']) && 
                     isset($_POST['publish'])  && isset($_POST['owned'])  &&
                     isset($_POST['buy']) &&  isset($_POST['price']) &&
@@ -99,7 +99,7 @@ class Manga_Controller extends TinyMVC_Controller
                     $price      = $_POST['price'];
                     $editor     = $_POST['editor'];
                     $type       = $_POST['type'];
-    
+
                     $this->query->edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
                     $this->view->assign('success', true);
                 else : 
