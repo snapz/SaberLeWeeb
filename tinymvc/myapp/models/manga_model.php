@@ -92,6 +92,28 @@ class Manga_Model extends TinyMVC_Model
         return $manga;
     }
 
+    function search_manga($query)
+    {
+        $result = $this->db->query_all('SELECT * FROM manga WHERE title LIKE ?', array(
+            '%' .$query . '%'
+        ));
+        $data = array();
+        foreach($result as $key => $manga){
+            $data[$key]['id']           = $manga['id'];
+            $data[$key]['title']        = $manga['title'];
+            $data[$key]['date']         = strcmp($manga['date'], "0000-00-00") == 0 ? "" : $manga['date'];
+            $data[$key]['status']       = self::switch_status($manga['status']);
+            $data[$key]['published']    = $manga['published_tomes'];
+            $data[$key]['owned']        = $manga['owned_tomes'];
+            $data[$key]['missing']      = $manga['published_tomes'] - $manga['owned_tomes'];
+            $data[$key]['buying']       = $manga['buying_tomes'];
+            $data[$key]['price']        = $manga['price'];
+            $data[$key]['editor']       = $manga['editor'];
+            $data[$key]['type']         = $manga['type'];
+        }
+        return $data;
+    }
+
 
 ////////////////////////////////// UTILS FUNCTIONS ////////////////////////////
     function switch_status($status_id)

@@ -11,7 +11,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Analysez un site web">
-        <meta name="author" content="Dysta">
+        <meta name="author" content="Zaxner, Riki">
         <title><?=NAME?></title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="<?=ASSETS_URL?>vendor/bootstrap/css/bootstrap.min.css">
@@ -19,6 +19,8 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <link rel="stylesheet" href="<?=ASSETS_URL?>css/scrolling-nav.css">
         <!-- FontAwesom -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Favicon -->
+        <link  rel="icon" href="<?=ASSETS_URL?>favicon.ico">
     </head>
 
     <body>
@@ -70,7 +72,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                         <p class="m-0 text-left">
                             Copyright &copy; <?=NAME?> 2018 
                             &bull; 
-                            Page g&eacute;n&eacute;r&eacute; en {TMVC_TIMER} secondes. 
+                            Page g&eacute;n&eacute;r&eacute;e en {TMVC_TIMER} secondes. 
                             
                         </p>
                     </div>

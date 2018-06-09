@@ -164,6 +164,12 @@
                     <input type="submit" value="Editer le manga !" class="btn btn-outline-success" name="edit_manga"/>
                 </center>
             </form>
+            <hr />
+            <center>
+                <a href="<?=URL?>manga/remove/<?=$manga['id']?>" title="supprimer le manga">
+                    <button class="btn btn-outline-danger">Supprimer le manga</button>
+                </a>
+            </center>
             <?php } ?>
         </div>
     </div>

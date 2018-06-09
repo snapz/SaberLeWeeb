@@ -15,11 +15,11 @@
             </p>
         </div>
         <br />
-        <a href="<?=URL?>manga/add">
-            <button type="button" class="btn btn-outline-success btn-lg">Ajouter un manga</button>
-        </a>
         <a href="<?=URL?>manga/all">
-            <button type="button" class="btn btn-outline-info btn-lg">Tableau des mangas</button>
+            <button type="button" class="btn btn-outline-info btn-lg">Ma collection</button>
+        </a>
+        <a href="<?=URL?>blog/index">
+            <button type="button" class="btn btn-outline-success btn-lg">Mon blog</button>
         </a>
     </div>
 </section>

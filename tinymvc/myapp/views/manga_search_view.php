@@ -1,7 +1,7 @@
-<header class="bg-secondary text-white">
+<header class="bg-info text-white">
     <div class="container text-center" style="margin-top:-90px">
-        <h1>Tout les mangas</h1>
-        <p class="lead">Tout les mangas de ce sale weeb.</p>
+        <h1>Recherche d'un mangas</h1>
+        <p class="lead">Rechercher un manga dans la collection</p>
     </div>
 </header>
 
@@ -9,8 +9,29 @@
     <section>
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>Tout les mangas<a href="<?=URL?>manga/search"><button class="btn btn-sm btn-outline-primary float-right" title="Chercher un manga"><i class="fa fa-search"></i></button></a></h2>
+                <h2>Rechercher un manga</h2>
                 <hr />
+                <form method="GET">
+                    <div class="form-group row">
+                        <label  class="col-2 col-form-label">Titre du manga</label>
+                        <div class="col-9">
+                            <input class="form-control" type="text" name="search" required>
+                        </div>
+                        <button type="submit" class="btn btn-outline-secondary" title="Lancer la recherche"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+                <?php if ( isset($result) ) : ?>
+                <hr />
+                <h2>Résultat de la recherche</h2>
+                <hr />
+                <?php endif; ?>
+
+                <?php if ( isset($result) && empty($result) ) { ?>
+                <div class="alert alert-warning" role="alert">
+                    <u><b>Mince !</b></u><br />
+                    Aucun manga trouvé !
+                </div>
+                <?php } elseif ( isset($result) && !empty($result) ) { ?>
                 <table class="col-md-12 table-responsive-lg table-striped text-center">
                     <thead>
                         <tr>
@@ -28,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($mangas as $manga){ ?>
+                        <?php foreach($result as $manga) { ?>
                         <tr class="table">
                             <td><?php echo $manga['title'] ?></td>
                             <td><?php echo $manga['date'] ?></td>
@@ -51,6 +72,7 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <?php } ?>
             </div>
         </div>
     </section>
