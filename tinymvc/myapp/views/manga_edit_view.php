@@ -1,7 +1,7 @@
 <header class="bg-success text-white">
     <div class="container text-center" style="margin-top:-90px">
-        <h1>&Eacute;dition d'un manga</h1>
-        <p class="lead">Modifier un manga de la collection</p>
+        <h1>Edition</h1>
+        <p class="lead">Permet la modification d'un manga</p>
     </div>
 </header>
 
@@ -12,30 +12,26 @@
             <hr />
             <?php if ( isset($success) && $success ) : ?>
             <div class="alert alert-success" role="alert">
-                <u><b>Félicitation !</b></u><br />
-                Le manga a été modifié avec succès !
+                <u><b>L'édition a été pris en compte !</b></u><br />
             </div>
             <hr />
             <?php endif; ?>
 
             <?php if ( isset($success) && !$success ) : ?>
             <div class="alert alert-danger" role="alert">
-                <u><b>Mince !</b></u><br />
-                Complète le formulaire et réessaye !
+                <u><b>Des champs sont manquants ou incorrects...</b></u><br />
             </div>
             <hr />
             <?php endif; ?>
 
             <?php if ( !isset($manga) ) { ?>
             <div class="alert alert-danger" role="alert">
-                <u><b>Mince !</b></u><br />
-                Aucun manga indiqué !
+            <u><b>Le manga que vous souhaitez modifié n'existe pas...</b></u><br />
             </div>
             <hr />
             <?php } else if ( isset($manga) && empty($manga) ) { ?>
             <div class="alert alert-danger" role="alert">
-                <u><b>Mince !</b></u><br />
-                Aucun manga trouvé !
+            <u><b>Le manga que vous souhaitez modifié n'existe pas...</b></u><br />
             </div>
             <hr />
             <?php } else { ?>

@@ -100,7 +100,9 @@ class Manga_Controller extends TinyMVC_Controller
                     $editor     = $_POST['editor'];
                     $type       = $_POST['type'];
 
-                    $this->query->edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
+                    $this->manga->edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
+                    $manga = $this->manga->get_manga($id);
+                    $this->view->assign('manga', $manga);
                     $this->view->assign('success', true);
                 else : 
                     $this->view->assign('success', false);

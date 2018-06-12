@@ -27,7 +27,9 @@
                 <p class="lead"><i class="fa fa-user"></i> <b><?php echo $ticket['author'] ?></b></p>
                 <p><i class="fa fa-calendar"></i> Post&eacute; le <b><?php echo $ticket['date'] ?></b></p>
                 <hr />
-                <p class="lead"><?php echo $ticket['content'] ?></p>
+                <span class="lead">
+                    <?php echo $ticket['content'] ?>
+                </span>
             </div>
         </div>
         <?php } ?>

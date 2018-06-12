@@ -101,6 +101,12 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <!-- Custom JavaScript for this theme -->
         <script src="<?=ASSETS_URL?>js/scrolling-nav.js"></script>
 
+        <!-- CkEditor script -->
+        <script src="//cdn.ckeditor.com/4.9.2/full/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'ckeditor' );
+        </script>
+
     </body>
 
 </html>

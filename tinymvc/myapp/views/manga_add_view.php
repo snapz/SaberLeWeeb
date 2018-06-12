@@ -13,7 +13,7 @@
             <?php if ( isset($success) && $success ) : ?>
             <div class="alert alert-success" role="alert">
                 <u><b>Félicitation !</b></u><br />
-                Le manga a été ajouté avec succès !
+                L'ajout a bien été validé !
             </div>
             <hr />
             <?php endif; ?>
@@ -21,7 +21,7 @@
             <?php if ( isset($success) && !$success ) : ?>
             <div class="alert alert-danger" role="alert">
                 <u><b>Mince !</b></u><br />
-                Complète le formulaire et réessaye !
+                Des champs sont vides ou incorrects...
             </div>
             <hr />
             <?php endif; ?>

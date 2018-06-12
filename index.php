@@ -12,7 +12,7 @@
 error_reporting(E_ALL);
 
 /* define to 0 if you want errors/exceptions handled externally */
-define('TMVC_ERROR_HANDLING',1);
+define('TMVC_ERROR_HANDLING',0);
 
 /* directory separator alias */
 if(!defined('DS'))

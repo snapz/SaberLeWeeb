@@ -1,7 +1,7 @@
 <header class="bg-info text-white">
     <div class="container text-center" style="margin-top:-90px">
-        <h1>Recherche d'un mangas</h1>
-        <p class="lead">Rechercher un manga dans la collection</p>
+        <h1>Recherche</h1>
+        <p class="lead">Parce qu'on ne se souviens pas de tout !</p>
     </div>
 </header>
 
@@ -28,8 +28,7 @@
 
                 <?php if ( isset($result) && empty($result) ) { ?>
                 <div class="alert alert-warning" role="alert">
-                    <u><b>Mince !</b></u><br />
-                    Aucun manga trouvé !
+                    <u><b>Aucun manga trouvé, réessayez avec d'autres mots-clés...</b></u><br />
                 </div>
                 <?php } elseif ( isset($result) && !empty($result) ) { ?>
                 <table class="col-md-12 table-responsive-lg table-striped text-center">

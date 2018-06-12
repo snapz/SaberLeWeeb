@@ -1,7 +1,7 @@
 <header class="bg-secondary text-white">
     <div class="container text-center" style="margin-top:-90px">
-        <h1>Tout les mangas</h1>
-        <p class="lead">Tout les mangas de ce sale weeb.</p>
+        <h1>Aperçu de la collection</h1>
+        <p class="lead">Parce que gérer tout ça sur Excel c'est chiant !</p>
     </div>
 </header>
 

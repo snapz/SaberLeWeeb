@@ -6,7 +6,7 @@ Class Blog_Model extends TinyMVC_Model
     {
         $this->db->select('*');
         $this->db->from('tickets');
-        $this->db->orderby('ID DESC');
+        $this->db->orderby('id DESC');
         $this->db->limit($limit);
         $tickets = $this->db->query_all();
         $data = array();
@@ -32,6 +32,43 @@ Class Blog_Model extends TinyMVC_Model
         $this->db->where('id', $id);
         $ticket = $this->db->query_one();
         return $ticket;
+    }
+
+    function add_ticket($title, $content, $author)
+    {
+        return $this->db->insert('tickets', array(
+            'title'     => $title,
+            'content'   => $content,
+            'author'    => $author,
+            'date'      => date('Y-m-d')
+        ));
+    }
+
+    function edit_ticket($id, $title, $content, $author)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update('tickets', array(
+            'title'     => $title,
+            'content'   => $content,
+            'author'    => $author,
+            'date'      => date('Y-m-d')
+        ));
+    }
+
+    function remove_ticket($id)
+    {
+        $this->db->select('*');
+        $this->db->from('tickets');
+        $this->db->where('id', $id);
+        $result = $this->db->query_one();
+        
+        if ( $result != NULL ) :
+            $this->db->where('id', $id);
+            $this->db->delete('tickets');
+            return True;
+        else :
+            return False;
+        endif;
     }
 }
 
