@@ -102,7 +102,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <script src="<?=ASSETS_URL?>js/scrolling-nav.js"></script>
 
         <!-- CkEditor script -->
-        <script src="//cdn.ckeditor.com/4.9.2/full/ckeditor.js"></script>
+        <script src="<?=ASSETS_URL?>vendor/ckeditor/ckeditor.js"></script>
         <script>
             CKEDITOR.replace( 'ckeditor' );
         </script>

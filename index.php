@@ -32,14 +32,14 @@ if(!defined('TMVC_BASEDIR'))
 require(TMVC_BASEDIR . DS . 'myapp' . DS . 'configs' . DS . 'config_global.php');
 
 if(!defined('ASSETS_URL')){
-  define('ASSETS_URL', BASE_URL . 'assets' . DS);
+  define('ASSETS_URL', BASE_URL . 'assets/');
 }
 
 if(!defined('URL')){
   if(REWRITE):
     define('URL', BASE_URL);
   else:
-    define('URL', BASE_URL . 'index.php' . DS);
+    define('URL', BASE_URL . 'index.php/');
   endif;
 }
 
