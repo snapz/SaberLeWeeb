@@ -110,6 +110,26 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <script>
             $(document).ready( function () {
                 $('#manga_table').DataTable( {
+                    "language": {
+                        "decimal":        "",
+                        "emptyTable":     "Rien à afficher",
+                        "info":           "Visualisation de _START_ à _END_ pour un total de _TOTAL_ entrées",
+                        "infoEmpty":      "Le tableau est vide",
+                        "infoFiltered":   "(filtered from _MAX_ total entries)",
+                        "infoPostFix":    "",
+                        "thousands":      ",",
+                        "lengthMenu":     "Nombre de mangas à afficher : _MENU_",
+                        "loadingRecords": "Chargement...",
+                        "processing":     "Chargement...",
+                        "search":         "Rechercher un manga :",
+                        "zeroRecords":    "Aucun résultat",
+                        "paginate": {
+                            "first":      "Premier",
+                            "last":       "Dernier",
+                            "next":       "<i class=\"fa fa-chevron-right\"></i>",
+                            "previous":   "<i class=\"fa fa-chevron-left\"></i>"
+                        },
+                    },
                     "order": [
                         [1, "asc"],
                         [0, "asc"],
