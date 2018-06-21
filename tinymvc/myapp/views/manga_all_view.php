@@ -9,9 +9,9 @@
     <section>
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>Tout les mangas<a href="<?=URL?>manga/search"><button class="btn btn-sm btn-outline-primary float-right" title="Chercher un manga"><i class="fa fa-search"></i></button></a></h2>
+                <h2>Tout les mangas<!--<a href="<?=URL?>manga/search"><button class="btn btn-sm btn-outline-primary float-right" title="Chercher un manga"><i class="fa fa-search"></i></button></a>--></h2>
                 <hr />
-                <table class="col-md-12 table-responsive-lg table-striped text-center">
+                <table id="manga_table" class="col-md-12 table-responsive-lg table-striped text-center table-bordered">
                     <thead>
                         <tr>
                             <th>Titre</th>
@@ -50,6 +50,21 @@
                         </tr>
                         <?php } ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Date de publication</th>
+                            <th>Status</th>
+                            <th>Tomes publiés</th>
+                            <th>Tomes possédés</th>
+                            <th>Tomes manquant</th>
+                            <th>Tomes à acheter</th>
+                            <th>Prix public</th>
+                            <th>&Eacute;diteur</th>
+                            <th>Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

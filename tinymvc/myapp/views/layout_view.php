@@ -19,6 +19,8 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <link rel="stylesheet" href="<?=ASSETS_URL?>css/scrolling-nav.css">
         <!-- FontAwesom -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- DataTable -->
+        <link rel"stylesheet" href="<?=ASSETS_URL?>vendor/datatables/datatables.min.css">
         <!-- Favicon -->
         <link  rel="icon" href="<?=ASSETS_URL?>favicon.ico">
     </head>
@@ -94,17 +96,26 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <!-- Bootstrap core JavaScript -->
         <script src="<?=ASSETS_URL?>vendor/jquery/jquery.min.js"></script>
         <script src="<?=ASSETS_URL?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
         <!-- Plugin JavaScript -->
         <script src="<?=ASSETS_URL?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
         <!-- Custom JavaScript for this theme -->
         <script src="<?=ASSETS_URL?>js/scrolling-nav.js"></script>
-
         <!-- CkEditor script -->
         <script src="<?=ASSETS_URL?>vendor/ckeditor/ckeditor.js"></script>
         <script>
             CKEDITOR.replace( 'ckeditor' );
+        </script>
+        <!-- DataTable script -->
+        <script src="<?=ASSETS_URL?>vendor/datatables/datatables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#manga_table').DataTable( {
+                    "order": [
+                        [1, "asc"],
+                        [0, "asc"],
+                    ]
+                });
+            } );
         </script>
 
     </body>
