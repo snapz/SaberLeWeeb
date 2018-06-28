@@ -35,3 +35,7 @@ section {
 .col-sm-12 {
   margin-bottom: 15px;
 }
+
+.dataTables_filter {
+  float: right;
+}

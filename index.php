@@ -36,6 +36,10 @@ if(!defined('ASSETS_URL')){
 }
 
 if(!defined('URL')){
+  define('URL', BASE_URL);
+}
+/*
+if(!defined('URL')){
   if(REWRITE):
     define('URL', BASE_URL);
   else:
