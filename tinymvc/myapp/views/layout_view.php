@@ -10,7 +10,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Analysez un site web">
+        <meta name="description" content="Gestionnaire de manga/animé">
         <meta name="author" content="Zaxner, Riki">
         <title><?=NAME?></title>
         <!-- Bootstrap core CSS -->
