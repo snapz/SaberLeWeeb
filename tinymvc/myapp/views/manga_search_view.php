@@ -31,7 +31,7 @@
                     <u><b>Aucun manga trouvé, réessayez avec d'autres mots-clés...</b></u><br />
                 </div>
                 <?php } elseif ( isset($result) && !empty($result) ) { ?>
-                <table class="col-md-12 table-responsive-lg table-striped text-center">
+                <table id="manga_table" class="table table-responsive-lg table-striped text-center table-bordered">
                     <thead>
                         <tr>
                             <th>Titre</th>
@@ -44,7 +44,6 @@
                             <th>Prix public</th>
                             <th>&Eacute;diteur</th>
                             <th>Type</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,16 +59,23 @@
                             <td><?php echo $manga['price'] ?></td>
                             <td><?php echo $manga['editor'] ?></td>
                             <td><?php echo $manga['type'] ?></td>
-                            <td>
-                                <a href="<?=URL?>manga/edit/<?=$manga['id']?>">
-                                    <button class="btn btn-sm btn-primary float-left" title="Editer le manga">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                </a>
-                            </td>
                         </tr>
                         <?php } ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Date de publication</th>
+                            <th>Status</th>
+                            <th>Tomes publiés</th>
+                            <th>Tomes possédés</th>
+                            <th>Tomes manquant</th>
+                            <th>Tomes à acheter</th>
+                            <th>Prix public</th>
+                            <th>&Eacute;diteur</th>
+                            <th>Type</th>
+                        </tr>
+                    </tfoot>
                 </table>
                 <?php } ?>
             </div>

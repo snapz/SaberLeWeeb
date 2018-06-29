@@ -16,7 +16,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="<?=ASSETS_URL?>vendor/bootstrap/css/bootstrap.min.css">
         <!-- DataTable -->
-        <link rel"stylesheet" href="<?=ASSETS_URL?>vendor/datatables/datatables.min.css">
+        <link rel="stylesheet" href="<?=ASSETS_URL?>vendor/datatables/datatables.min.css">
         <!-- FontAwesom -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Custom styles for this template -->

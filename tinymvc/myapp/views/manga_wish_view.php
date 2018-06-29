@@ -11,11 +11,11 @@
             <div class="col-md-12 mx-auto">
                 <h2>Liste des tomes à acheter</h2>
                 <hr />
-                <table id="manga_table" class="col-md-12 table-responsive-lg table-striped text-center table-bordered">
+                <table id="manga_table" class="table table-responsive-lg table-striped text-center table-bordered">
                     <thead>
                         <tr>
-                            <th>Titre</th>
-                            <th>Tomes à acheter</th>
+                            <th width="50%">Titre</th>
+                            <th width="50%">Tomes à acheter</th>
                         </tr>
                     </thead>
                     <tbody>
