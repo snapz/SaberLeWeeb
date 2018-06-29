@@ -13,23 +13,37 @@
             <p class="lead">
                 <i><?=NAME?></i> est un gestionnaire de manga pour le sale weeb de <b>Saber</b>.<br />
             </p>
+            <br />
+            <a href="<?=URL?>blog/index">
+                <button type="button" class="btn btn-outline-success btn-lg">Mon blog</button>
+            </a>
+            <a href="<?=URL?>manga/all">
+                <button type="button" class="btn btn-outline-info btn-lg">Ma collection</button>
+            </a>
         </div>
-        <br />
-        <a href="<?=URL?>manga/all">
-            <button type="button" class="btn btn-outline-info btn-lg">Ma collection</button>
-        </a>
-        <a href="<?=URL?>blog/index">
-            <button type="button" class="btn btn-outline-success btn-lg">Mon blog</button>
-        </a>
         <hr />
         <div class="row">
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-info o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <div class="mr-5"><b><?=$total_tomes_data['total_tomes']?></b> mangas possédés</div>
+                    </div>
+                    <div class="card-footer text-white clearfix small z-1">
+                        <span class="float-left">Montant total :</span>
+                        <span class="float-right"><?=$total_tomes_data['total_price']?> €</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="card text-white bg-success o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-money"></i>
                         </div>
-                        <div class="mr-5"><b><?=$new_tomes_data['total_tomes']?></b> tomes à acheter !</div>
+                        <div class="mr-5"><b><?=$new_tomes_data['total_tomes']?></b> manga à acheter</div>
                     </div>
                     <div class="card-footer text-white clearfix small z-1">
                         <span class="float-left">Montant total :</span>
@@ -37,31 +51,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-sm-6 mb-3">
+            <div class="col-xl-3 col-sm-6 mb-3">
                 <div class="card text-white bg-danger o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-times-circle-o"></i>
                         </div>
-                        <div class="mr-5"><b><?=$minss_tomes_data['total_missing']?></b> tomes manquant !</div>
+                        <div class="mr-5"><b><?=$miss_tomes_data['total_tomes']?></b> mangas manquant</div>
                     </div>
                     <div class="card-footer text-white clearfix small z-1">
                         <span class="float-left">Montant total :</span>
-                        <span class="float-right"><?=$minss_tomes_data['total_price']?> €</span>
+                        <span class="float-right"><?=$miss_tomes_data['total_price']?> €</span>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-sm-6 mb-3">
-                <div class="card text-white bg-primary o-hidden h-100">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-secondary o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-calendar"></i>
                         </div>
-                        <div class="mr-5">X tomes en attente de sortie !</div>
+                        <div class="mr-5"><b>?</b> mangas en attente de sortie</div>
                     </div>
                     <div class="card-footer text-white clearfix small z-1">
                         <span class="float-left">Montant total :</span>
-                        <span class="float-right">xx€</span>
+                        <span class="float-right">? €</span>
                     </div>
                 </div>
             </div>

@@ -15,22 +15,21 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <title><?=NAME?></title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="<?=ASSETS_URL?>vendor/bootstrap/css/bootstrap.min.css">
-        <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="<?=ASSETS_URL?>css/scrolling-nav.css">
-        <!-- FontAwesom -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- DataTable -->
         <link rel"stylesheet" href="<?=ASSETS_URL?>vendor/datatables/datatables.min.css">
+        <!-- FontAwesom -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="<?=ASSETS_URL?>site/css/custom.css">
         <!-- Favicon -->
-        <link  rel="icon" href="<?=ASSETS_URL?>favicon.ico">
+        <link  rel="icon" href="<?=ASSETS_URL?>site/favicon.ico">
     </head>
 
     <body>
-
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="<?=URL?>home/index"><img src="<?=ASSETS_URL?>img/logo_<?=rand(1,4)?>.png" alt="logo" /></a>
+                <a class="navbar-brand js-scroll-trigger" href="<?=URL?>home/index"><img src="<?=ASSETS_URL?>site/img/logo_<?=rand(1,4)?>.png" alt="logo" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -98,8 +97,6 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <script src="<?=ASSETS_URL?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Plugin JavaScript -->
         <script src="<?=ASSETS_URL?>vendor/jquery-easing/jquery.easing.min.js"></script>
-        <!-- Custom JavaScript for this theme -->
-        <script src="<?=ASSETS_URL?>js/scrolling-nav.js"></script>
         <!-- CkEditor script -->
         <script src="<?=ASSETS_URL?>vendor/ckeditor/ckeditor.js"></script>
         <script>
@@ -133,11 +130,10 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     "order": [
                         [1, "asc"],
                         [0, "asc"],
-                    ]
+                    ],
+                    "iDisplayLength": 50
                 });
             } );
         </script>
-
     </body>
-
 </html>

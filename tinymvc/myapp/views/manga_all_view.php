@@ -9,7 +9,7 @@
     <section>
         <div class="row">
             <div class="col-md-12 mx-auto">
-                <h2>Tout les mangas<!--<a href="<?=URL?>manga/search"><button class="btn btn-sm btn-outline-primary float-right" title="Chercher un manga"><i class="fa fa-search"></i></button></a>--></h2>
+                <h2>Tout les mangas<a href="<?=URL?>manga/wish_list"><button class="btn btn-sm btn-outline-primary float-right" title="Voir la wish list"><i class="fa fa-gift"></i></button></a></h2>
                 <hr />
                 <table id="manga_table" class="col-md-12 table-responsive-lg table-striped text-center table-bordered">
                     <thead>

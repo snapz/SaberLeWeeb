@@ -29,7 +29,7 @@ if(!defined('TMVC_BASEDIR'))
 //define('TMVC_MYAPPDIR','/path/to/myapp/');
 
 /* include the config */
-require(TMVC_BASEDIR . DS . 'myapp' . DS . 'configs' . DS . 'config_global.php');
+require(TMVC_BASEDIR . 'myapp' . DS . 'configs' . DS . 'config_global.php');
 
 if(!defined('ASSETS_URL')){
   define('ASSETS_URL', BASE_URL . 'assets/');
