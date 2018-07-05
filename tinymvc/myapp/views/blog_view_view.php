@@ -18,7 +18,7 @@
             L'article indiqué n'existe pas !
         </div>
         <?php } else { ?>
-        <h5><a href="<?=URL?>blog/index" title="retourner à l'index">Tout les billets</a> > <?php echo $ticket['title'] ?></h5>
+        <h5><a href="<?=URL?>blog/index" title="retourner à l'index">Tout les articles</a> > <?php echo $ticket['title'] ?></h5>
         <hr />
         <div class="row">
             <div class="col-12">

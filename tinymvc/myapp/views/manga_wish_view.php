@@ -1,6 +1,6 @@
 <header class="bg-success text-white">
     <div class="container text-center" style="margin-top:-90px">
-        <h1>Wish list</h1>
+        <h1>Wishlist</h1>
         <p class="lead">Pour mon libraire préféré <3</p>
     </div>
 </header>

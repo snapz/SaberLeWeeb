@@ -24,7 +24,6 @@
                             <th>Prix public</th>
                             <th>&Eacute;diteur</th>
                             <th>Type</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,13 +39,6 @@
                             <td><?php echo $manga['price'] ?></td>
                             <td><?php echo $manga['editor'] ?></td>
                             <td><?php echo $manga['type'] ?></td>
-                            <td>
-                                <a href="<?=URL?>manga/edit/<?=$manga['id']?>">
-                                    <button class="btn btn-sm btn-primary float-left" title="Editer le manga">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                </a>
-                            </td>
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -62,7 +54,6 @@
                             <th>Prix public</th>
                             <th>&Eacute;diteur</th>
                             <th>Type</th>
-                            <th>Action</th>
                         </tr>
                     </tfoot>
                 </table>

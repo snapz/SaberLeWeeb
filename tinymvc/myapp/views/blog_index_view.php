@@ -7,7 +7,7 @@
 
 <section>
     <div class="container">
-        <h2>Tout les billets<a href="<?=URL?>blog/add"><button class="btn btn-sm btn-outline-primary float-right" title="Ajouter un billet"><i class="fa fa-plus"></i></button></a></h2>
+        <h2>Tout les articles</h2>
         <hr />
         <div class="row">
             <?php foreach($tickets as $ticket) { ?>
@@ -26,11 +26,6 @@
                             <a href="<?=URL?>blog/view/<?=$ticket['id']?>">
                                 <button type="button" class="btn btn-outline-info float-right">
                                     Voir tout l'article <i class="fa fa-chevron-right"></i>
-                                </button>
-                            </a>
-                            <a href="<?=URL?>blog/edit/<?=$ticket['id']?>">
-                                <button type="button" class="btn btn-outline-success float-right">
-                                    <i class="fa fa-pencil"></i>
                                 </button>
                             </a>
                         </div>

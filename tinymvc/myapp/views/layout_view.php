@@ -22,7 +22,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="<?=ASSETS_URL?>site/css/custom.css">
         <!-- Favicon -->
-        <link  rel="icon" href="<?=ASSETS_URL?>site/favicon.ico">
+        <link  rel="icon" href="<?=ASSETS_URL?>favicon.ico">
     </head>
 
     <body>
@@ -110,7 +110,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     "language": {
                         "decimal":        "",
                         "emptyTable":     "Rien à afficher",
-                        "info":           "Visualisation de _START_ à _END_ pour un total de _TOTAL_ entrées",
+                        "info":           "_START_ - _END_/_TOTAL_",
                         "infoEmpty":      "Le tableau est vide",
                         "infoFiltered":   "(filtered from _MAX_ total entries)",
                         "infoPostFix":    "",

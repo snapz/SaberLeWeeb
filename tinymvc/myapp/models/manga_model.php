@@ -26,24 +26,21 @@ class Manga_Model extends TinyMVC_Model
         return $data;
     }
 
-    function get_all_wished_manga($limit)
+    function get_manga($id)
     {
-        $this->db->select('id, title, owned_tomes, buying_tomes');
+        $this->db->select('*');
         $this->db->from('manga');
-        $this->db->where('buying_tomes > ?', array(0));
-        //$this->db->orderby('status ASC, title ASC');
-        //$this->db->limit($limit);
-        $result = $this->db->query_all();
-        $data = array();
-        foreach($result as $key => $manga){
-            $data[$key]['id']           = $manga['id'];
-            $data[$key]['title']        = $manga['title'];
-            $data[$key]['wished']       = array(
-                                                'start' => $manga['owned_tomes'] + 1,
-                                                'end'   => $manga['owned_tomes'] + $manga['buying_tomes']
-                                                );
-        }
-        return $data;
+        $this->db->where('id', $id);
+        $manga = $this->db->query_one();
+
+        if ( !empty($manga) ) :
+            $date = explode('-', $manga['date']);
+            $manga['year'] = $date[0];
+            $manga['month'] = $date[1];
+            $manga['day'] = $date[2];
+        endif;
+
+        return $manga;
     }
 
     function add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type)
@@ -79,7 +76,7 @@ class Manga_Model extends TinyMVC_Model
         );
     }
 
-    function remove_manga($id)
+    function delete_manga($id)
     {
         $this->db->select('*');
         $this->db->from('manga');
@@ -95,21 +92,24 @@ class Manga_Model extends TinyMVC_Model
         endif;
     }
 
-    function get_manga($id)
+    function get_all_wished_manga($limit)
     {
-        $this->db->select('*');
+        $this->db->select('id, title, owned_tomes, buying_tomes');
         $this->db->from('manga');
-        $this->db->where('id', $id);
-        $manga = $this->db->query_one();
-
-        if ( !empty($manga) ) :
-            $date = explode('-', $manga['date']);
-            $manga['year'] = $date[0];
-            $manga['month'] = $date[1];
-            $manga['day'] = $date[2];
-        endif;
-
-        return $manga;
+        $this->db->where('buying_tomes > ?', array(0));
+        //$this->db->orderby('status ASC, title ASC');
+        //$this->db->limit($limit);
+        $result = $this->db->query_all();
+        $data = array();
+        foreach($result as $key => $manga){
+            $data[$key]['id']           = $manga['id'];
+            $data[$key]['title']        = $manga['title'];
+            $data[$key]['wished']       = array(
+                                                'start' => $manga['owned_tomes'] + 1,
+                                                'end'   => $manga['owned_tomes'] + $manga['buying_tomes']
+                                                );
+        }
+        return $data;
     }
 
     function search_manga($query)
@@ -154,55 +154,6 @@ class Manga_Model extends TinyMVC_Model
     {
         $new_date = date_create($date);
         return $new_date->format('d-m-Y');
-    }
-
-    function get_total_tomes()
-    {
-        $this->db->select('owned_tomes, price');
-        $this->db->from('manga');
-        $result = $this->db->query_all();
-        $data = array(
-            'total_tomes'   => 0,
-            'total_price'   => 0
-        );
-        foreach($result as $tome){
-            $data['total_tomes'] += $tome['owned_tomes'];
-            $data['total_price'] += $tome['owned_tomes'] * $tome['price'];
-        }
-        return $data;
-    }
-
-    function get_new_tomes_to_buy()
-    {
-        $this->db->select('buying_tomes, price');
-        $this->db->from('manga');
-        $this->db->where('buying_tomes > ?', array(0));
-        $result = $this->db->query_all();
-        $data = array(
-            'total_tomes'   => 0,
-            'total_price'   => 0
-        );
-        foreach($result as $tome){
-            $data['total_tomes'] += $tome['buying_tomes'];
-            $data['total_price'] += $tome['buying_tomes'] * $tome['price'];
-        }
-        return $data;
-    }
-
-    function get_nb_missing_tomes()
-    {
-        $this->db->select('published_tomes, owned_tomes, price');
-        $this->db->from('manga');
-        $result = $this->db->query_all();
-        $data = array(
-            'total_tomes'   => 0,
-            'total_price'   => 0
-        );
-        foreach($result as $tome){
-            $data['total_tomes'] += $tome['published_tomes'] - $tome['owned_tomes'];
-            $data['total_price'] += ($tome['published_tomes'] - $tome['owned_tomes']) * $tome['price'];
-        }
-        return $data;
     }
 }
 ?>

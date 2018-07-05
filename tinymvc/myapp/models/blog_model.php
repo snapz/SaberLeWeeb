@@ -2,7 +2,7 @@
 
 Class Blog_Model extends TinyMVC_Model
 {
-    function get_all_tickets($limit)
+    function get_all_tickets($limit, $max_carac = 430)
     {
         $this->db->select('*');
         $this->db->from('tickets');
@@ -13,8 +13,8 @@ Class Blog_Model extends TinyMVC_Model
         foreach($tickets as $key => $ticket){
             $data[$key]['id']       = $ticket['id'];
             $data[$key]['title']    = $ticket['title'];
-            if ( strlen($ticket['content']) > 430 ) :
-                $content = substr($ticket['content'], 0, 430) . "...";
+            if ( strlen($ticket['content']) > $max_carac ) :
+                $content = substr($ticket['content'], 0, $max_carac) . "...";
             else :
                 $content = $ticket['content'];
             endif;
