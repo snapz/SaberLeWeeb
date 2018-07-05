@@ -141,7 +141,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     <div class="modal-body">Cliquez sur "Rafraichir" pour rafraichir les données concernant les tomes en cours de publication.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                        <a class="btn btn-primary" href="blank.html">Rafraichir</a>
+                        <a class="btn btn-primary" href="<?=URL?>/admin/index">Rafraichir</a>
                     </div>
                 </div>
             </div>
