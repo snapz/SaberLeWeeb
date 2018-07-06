@@ -51,6 +51,15 @@ class Admin_Model extends TinyMVC_Model
         return $data;
     }
 
+    function get_user($account, $password)
+    {
+        $this->db->select('*');
+        $this->db->from('accounts');
+        $this->db->where('account = ? AND password = ?', array($account, $password));
+        $result = $this->db->query_one();
+        return $result;
+    }
+
 ////////////////////////////////// UTILS FUNCTIONS ////////////////////////////
     function switch_status($status_id)
     {

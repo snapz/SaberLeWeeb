@@ -43,6 +43,9 @@ if(!defined('URL')){
   endif;
 }
 
+/* Start the session system */
+session_start();
+
 /* include main tmvc class */
 require(TMVC_BASEDIR . 'sysfiles' . DS . 'TinyMVC.php');
 

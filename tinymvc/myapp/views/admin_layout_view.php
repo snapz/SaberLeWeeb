@@ -79,6 +79,11 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                 </li>
                 -->
                 <li class="nav-item">
+                    <span class="navbar-text">
+                        Bonjour <b><?=$_SESSION['username']?></b>
+                    </span>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" id="toggleNavColor">
                         <i class="fa fa-fw fa-exchange"></i>
                     </a>
@@ -123,7 +128,7 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     <div class="modal-body">Cliquez sur "Déconnexion" si vous voulez retourner sur le site et mettre fin à la session administrative.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                        <a class="btn btn-danger" href="<?=URL?>home/index">Déconnexion</a>
+                        <a class="btn btn-danger" href="<?=URL?>admin/logout">Déconnexion</a>
                     </div>
                 </div>
             </div>
@@ -212,6 +217,9 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                             "previous":   "<i class=\"fa fa-chevron-left\"></i>"
                         },
                     },
+                    "order": [
+                        [3, "desc"],
+                    ],
                     "iDisplayLength": 25
                 });
             } );

@@ -11,6 +11,11 @@ class Admin_Controller extends TinyMVC_Controller
 {
     function index()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->model('Admin_Model', 'admin');
 
         $new_tomes_data = $this->admin->get_new_tomes_to_buy();
@@ -27,6 +32,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function manga()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->model('Manga_Model', 'manga');
 
         $data = $this->manga->get_all_manga(200);
@@ -39,6 +49,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function manga_add()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         if ( isset($_POST['add_manga']) ) :
             if ( 
                 isset($_POST['title']) && !empty($_POST['title']) &&
@@ -74,6 +89,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function manga_edit()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->library('uri');
         $this->load->model('Manga_Model', 'manga');
 
@@ -118,6 +138,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function manga_delete()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->library('uri');
         $this->load->model('Manga_Model', 'manga');
 
@@ -133,6 +158,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function blog()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->model('Blog_Model', 'blog');
 
         $data = $this->blog->get_all_tickets(600, 50);
@@ -146,6 +176,11 @@ class Admin_Controller extends TinyMVC_Controller
     
     function blog_add()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         if ( isset($_POST['add_ticket']) ) :
             if ( 
                 isset($_POST['title']) && !empty($_POST['title']) &&
@@ -153,7 +188,7 @@ class Admin_Controller extends TinyMVC_Controller
             ) :
                 $title      = $_POST['title'];
                 $content    = $_POST['content'];
-                $author     = "Riki"; //TODO: Récuperer le session pseudo
+                $author     = $_SESSION['username'];
 
                 $this->load->model('Blog_Model', 'blog');
                 $this->blog->add_ticket($title, $content, $author);
@@ -169,6 +204,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function blog_edit()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->library('uri');
         $this->load->model('Blog_Model', 'blog');
 
@@ -183,7 +223,7 @@ class Admin_Controller extends TinyMVC_Controller
                 ) :
                     $title      = $_POST['title'];
                     $content    = $_POST['content'];
-                    $author     = "Riki"; //TODO: Récuperer le session pseudo
+                    $author     = $_SESSION['username'];
 
                     $this->blog->edit_ticket($id, $title, $content, $author);
                     $ticket = $this->blog->get_ticket($id);
@@ -201,6 +241,11 @@ class Admin_Controller extends TinyMVC_Controller
 
     function blog_delete()
     {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
         $this->load->library('uri');
         $this->load->model('Blog_Model', 'blog');
 
@@ -212,6 +257,42 @@ class Admin_Controller extends TinyMVC_Controller
         $content = $this->view->fetch('admin_blog_delete_view');
         $this->view->assign('content', $content);
         $this->view->display('admin_layout_view');
+    }
+
+    function login()
+    {
+        if ( isset($_POST['login']) ) :
+            if ( 
+                isset($_POST['account']) && !empty($_POST['account']) &&
+                isset($_POST['password']) && !empty($_POST['password'])
+            ) :
+                $this->load->model('Admin_Model', 'admin');
+                $user = $this->admin->get_user($_POST['account'], $_POST['password']);
+                if ( !empty($user) ) :
+                    $_SESSION['id']         = $user['id'];
+                    $_SESSION['account']    = $user['account'];
+                    $_SESSION['username']   = $user['username'];
+                    $_SESSION['logged']     = true;
+                    header("Location: " . URL . "admin/index");
+                else :
+                    $this->view->assign('success', false);
+                endif;
+            else :
+                $this->view->assign('success', false);
+            endif;
+        endif;
+        $this->view->display('admin_login_view');
+    }
+
+    function logout()
+    {
+        if ( !isset($_SESSION['logged']) ) :
+            header("Location: " . URL . "admin/login");
+            exit(0);
+        endif;
+
+        session_destroy();
+        header("Location: " . URL . "home/index");
     }
 
 }

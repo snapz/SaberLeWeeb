@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-06-12 17:40:13
+Date: 2018-07-06 10:45:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `accounts`
+-- ----------------------------
+DROP TABLE IF EXISTS `accounts`;
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `account` text,
+  `password` text,
+  `username` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of accounts
+-- ----------------------------
+
 -- ----------------------------
 -- Table structure for `manga`
 -- ----------------------------
