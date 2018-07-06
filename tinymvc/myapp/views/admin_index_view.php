@@ -53,11 +53,11 @@
                             <div class="card-body-icon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <div class="mr-5"><b>?</b> mangas en attente de sortie</div>
+                            <div class="mr-5"><b><?=$waiting_tomes_data['total_tomes']?></b> mangas en attente de sortie</div>
                         </div>
                         <div class="card-footer text-white clearfix small z-1">
                             <span class="float-left">Montant total :</span>
-                            <span class="float-right">? €</span>
+                            <span class="float-right"><?=$waiting_tomes_data['total_price']?> €</span>
                         </div>
                     </div>
                 </div>

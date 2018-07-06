@@ -24,6 +24,8 @@ class Admin_Controller extends TinyMVC_Controller
         $this->view->assign('miss_tomes_data', $miss_tomes_data);
         $total_tomes_data = $this->admin->get_total_tomes();
         $this->view->assign('total_tomes_data', $total_tomes_data);
+        $waiting_tomes_data = $this->admin->get_nb_waiting_tomes();
+        $this->view->assign('waiting_tomes_data', $waiting_tomes_data);
 
         $content = $this->view->fetch('admin_index_view');
         $this->view->assign('content', $content);

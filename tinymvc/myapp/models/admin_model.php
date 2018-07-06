@@ -51,6 +51,22 @@ class Admin_Model extends TinyMVC_Model
         return $data;
     }
 
+    function get_nb_waiting_tomes()
+    {
+        $this->db->select('published_tomes, owned_tomes, price');
+        $this->db->from('manga');
+        $this->db->where('date > ? AND date != ?', array(date("Y-m-d"), "9999-00-00"));
+        $result = $this->db->query_all();
+        $data = array(
+            'total_tomes'   => $this->db->num_rows(),
+            'total_price'   => 0
+        );
+        foreach($result as $tome){
+            $data['total_price'] += $tome['price'];
+        }
+        return $data;
+    }
+
     function get_user($account, $password)
     {
         $this->db->select('*');
