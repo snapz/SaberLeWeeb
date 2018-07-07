@@ -34,5 +34,19 @@
             </div>
             <?php } ?>
         </div>
+        <hr />
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?php if ( $currentPage - 1 <= 0 ) { ?>disabled<?php } ?>">
+                    <a class="page-link" href="<?=URL?>blog/index/<?=$currentPage - 1?>"><i class="fa fa-chevron-left"></i></a>
+                </li>
+                <?php for ($i = 1; $i <= $totalPage; $i++) { ?>
+                <li class="page-item <?php if ( $i == $currentPage ) { ?>active<?php } ?>"><a class="page-link" href="<?=URL?>blog/index/<?=$i?>"><?=$i?></a></li>
+                <?php } ?>
+                <li class="page-item <?php if ( $currentPage + 1 > $totalPage ) { ?>disabled<?php } ?>">
+                    <a class="page-link" href="<?=URL?>blog/index/<?=$currentPage + 1?>"><i class="fa fa-chevron-right"></i></a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </section>

@@ -11,9 +11,17 @@ class Blog_Controller extends TinyMVC_Controller
 {
     function index()
     {
+        $this->load->library('uri');
         $this->load->model('Blog_Model', 'blog');
-        $data = $this->blog->get_all_tickets(600);
+
+        $page = (int) $this->uri->segment(4);
+        $totalPage = $this->blog->get_number_of_blogs_page();
+        $data = $this->blog->get_all_tickets($page, 430);
+
+        $this->view->assign('currentPage', ($page == 0) ? 1 : $page);
+        $this->view->assign('totalPage', $totalPage);
         $this->view->assign('tickets', $data);
+
         $content = $this->view->fetch('blog_index_view');
         $this->view->assign('content', $content);
         $this->view->display('layout_view');

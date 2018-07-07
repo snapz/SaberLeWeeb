@@ -2,12 +2,23 @@
 
 Class Blog_Model extends TinyMVC_Model
 {
-    function get_all_tickets($limit, $max_carac = 430)
+    function get_all_tickets($page, $max_carac)
     {
+        $totalPage  = self::get_number_of_blogs_page();
+
+        if(isset($page) && !empty($page) && $page > 0){
+            $actualPage = ($page > $totalPage) ? $totalPage : $page;
+        } else {
+            $actualPage = 1;
+        }
+
+        $start = ($actualPage - 1) * TICKETS_PER_PAGE;
+        ($start < 0) ? $start*=-1 : $start;
+        
         $this->db->select('*');
         $this->db->from('tickets');
         $this->db->orderby('id DESC');
-        $this->db->limit($limit);
+        $this->db->limit(TICKETS_PER_PAGE, $start);
         $tickets = $this->db->query_all();
         $data = array();
         foreach($tickets as $key => $ticket){
@@ -69,6 +80,15 @@ Class Blog_Model extends TinyMVC_Model
         else :
             return False;
         endif;
+    }
+
+    function get_number_of_blogs_page()
+    {
+        $this->db->select('*');
+        $this->db->from('tickets');
+        $this->db->query();
+        $total = $this->db->num_rows();
+        return ceil($total/TICKETS_PER_PAGE);
     }
 }
 

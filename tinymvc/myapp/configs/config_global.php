@@ -13,4 +13,7 @@ define('DBHOST', '127.0.0.1');
 define('DBNAME', 'saber');
 define('DBUSER', 'root');
 define('DBPASS', '');
+
+/* define the number of ticket to display per page */
+define('TICKETS_PER_PAGE', 6);
 ?>
