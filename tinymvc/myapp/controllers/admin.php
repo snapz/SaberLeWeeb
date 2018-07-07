@@ -165,9 +165,9 @@ class Admin_Controller extends TinyMVC_Controller
             exit(0);
         endif;
 
-        $this->load->model('Blog_Model', 'blog');
+        $this->load->model('Admin_Model', 'admin');
 
-        $data = $this->blog->get_all_tickets(600, 50);
+        $data = $this->admin->get_all_tickets();
         $this->view->assign('tickets', $data);
 
         $content = $this->view->fetch('admin_blog_view');

@@ -67,6 +67,27 @@ class Admin_Model extends TinyMVC_Model
         return $data;
     }
 
+    function get_all_tickets()
+    {
+        $this->db->select('*');
+        $this->db->from('tickets');
+        $tickets = $this->db->query_all();
+        $data = array();
+        foreach($tickets as $key => $ticket){
+            $data[$key]['id']       = $ticket['id'];
+            $data[$key]['title']    = $ticket['title'];
+            if ( strlen($ticket['content']) > 50 ) :
+                $content = substr($ticket['content'], 0, 50) . "...";
+            else :
+                $content = $ticket['content'];
+            endif;
+            $data[$key]['content']  = $content;
+            $data[$key]['date']     = $ticket['date'];
+            $data[$key]['author']   = $ticket['author'];
+        }
+        return $data;
+    }
+
     function get_user($account, $password)
     {
         $this->db->select('*');
