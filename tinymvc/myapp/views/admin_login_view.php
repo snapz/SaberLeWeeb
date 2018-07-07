@@ -35,15 +35,16 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     <u><b>Mince !</b></u><br />
                     Nom de compte et/ou mot de passe incorrecte.
                 </div>
+                <hr />
                 <?php endif; ?>
                 <form method="POST">
                     <div class="form-group">
                         <label>Nom de compte</label>
-                        <input class="form-control" type="text" name="account">
+                        <input class="form-control" type="text" name="account" required>
                     </div>
                     <div class="form-group">
                         <label>Mot de passe</label>
-                        <input class="form-control" type="password" name="password">
+                        <input class="form-control" type="password" name="password" required>
                     </div>
                     <button class="btn btn-primary btn-block" type="submit" name="login">Connexion</button>
                 </form>
