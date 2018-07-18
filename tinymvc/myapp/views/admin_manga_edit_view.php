@@ -39,6 +39,12 @@
                 <?php } else { ?>
                 <form method="POST">
                     <div class="form-group row">
+                        <label  class="col-2 col-form-label">Lien Nautiljon</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" name="link" required value="<?php echo $manga['link'] ?>">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label  class="col-2 col-form-label">Titre</label>
                         <div class="col-10">
                             <input class="form-control" type="text" name="title" required value="<?php echo $manga['title'] ?>">

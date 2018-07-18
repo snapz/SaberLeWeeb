@@ -28,7 +28,7 @@
                         <tbody>
                             <?php foreach($mangas as $manga){ ?>
                             <tr class="table">
-                                <td><?php echo $manga['title'] ?></td>
+                                <td><a href="<?php echo $manga['link'] ?>" target="_blank" title="Nautiljon : <?php echo $manga['title'] ?>"><?php echo $manga['title'] ?></a></td>
                                 <td><?php echo $manga['date'] ?></td>
                                 <td><?php echo $manga['status'] ?></td>
                                 <td><?php echo $manga['published'] ?></td>

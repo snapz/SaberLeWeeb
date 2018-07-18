@@ -64,7 +64,8 @@ class Admin_Controller extends TinyMVC_Controller
                 isset($_POST['publish'])  && isset($_POST['owned'])  &&
                 isset($_POST['buy']) &&  isset($_POST['price']) &&
                 isset($_POST['editor']) && !empty($_POST['editor']) &&
-                isset($_POST['type']) && !empty($_POST['type'])
+                isset($_POST['type']) && !empty($_POST['type']) &&
+                isset($_POST['link']) && !empty($_POST['link'])
             ) :
                 $title      = $_POST['title'];
                 $year       = $_POST['date-year'] == 0 ? "0000" : $_POST['date-year'];
@@ -76,9 +77,10 @@ class Admin_Controller extends TinyMVC_Controller
                 $price      = $_POST['price'];
                 $editor     = $_POST['editor'];
                 $type       = $_POST['type'];
+                $link      = $_POST['link'];
 
                 $this->load->model('Manga_Model', 'manga');
-                $this->manga->add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
+                $this->manga->add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type, $link);
                 $this->view->assign('success', true);
             else : 
                 $this->view->assign('success', false);
@@ -111,7 +113,8 @@ class Admin_Controller extends TinyMVC_Controller
                     isset($_POST['publish'])  && isset($_POST['owned'])  &&
                     isset($_POST['buy']) &&  isset($_POST['price']) &&
                     isset($_POST['editor']) && !empty($_POST['editor']) &&
-                    isset($_POST['type']) && !empty($_POST['type'])
+                    isset($_POST['type']) && !empty($_POST['type']) &&
+                    isset($_POST['link']) && !empty($_POST['link'])
                 ) :
                     $title      = $_POST['title'];
                     $year       = $_POST['date-year'] == 0 ? "0000" : $_POST['date-year'];
@@ -123,8 +126,9 @@ class Admin_Controller extends TinyMVC_Controller
                     $price      = $_POST['price'];
                     $editor     = $_POST['editor'];
                     $type       = $_POST['type'];
+                    $link       = $_POST['link'];
 
-                    $this->manga->edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type);
+                    $this->manga->edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type, $link);
                     $manga = $this->manga->get_manga($id);
                     $this->view->assign('manga', $manga);
                     $this->view->assign('success', true);

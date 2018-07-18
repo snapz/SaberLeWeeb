@@ -22,6 +22,7 @@ class Manga_Model extends TinyMVC_Model
             $data[$key]['price']        = $manga['price'];
             $data[$key]['editor']       = $manga['editor'];
             $data[$key]['type']         = $manga['type'];
+            $data[$key]['link']         = $manga['link'];
         }
         return $data;
     }
@@ -43,7 +44,7 @@ class Manga_Model extends TinyMVC_Model
         return $manga;
     }
 
-    function add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type)
+    function add_manga($title, $date, $status, $publish, $owned, $buy, $price, $editor, $type, $link)
     {
         return $this->db->insert('manga', array(
                 'title'             => $title,
@@ -54,12 +55,13 @@ class Manga_Model extends TinyMVC_Model
                 'buying_tomes'      => $buy,
                 'price'             => $price,
                 'editor'            => $editor,
-                'type'              => $type
+                'type'              => $type,
+                'link'              => $link
             )
         );
     }
 
-    function edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type)
+    function edit_manga($id, $title, $date, $status, $publish, $owned, $buy, $price, $editor, $type, $link)
     {
         $this->db->where('id', $id);
         return $this->db->update('manga', array(
@@ -71,7 +73,8 @@ class Manga_Model extends TinyMVC_Model
                 'buying_tomes'      => $buy,
                 'price'             => $price,
                 'editor'            => $editor,
-                'type'              => $type
+                'type'              => $type,
+                'link'              => $link
             )
         );
     }
