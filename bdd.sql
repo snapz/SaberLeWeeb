@@ -45,6 +45,7 @@ CREATE TABLE `manga` (
   `price` float(11,2) NOT NULL DEFAULT '0.00',
   `editor` text,
   `type` text,
+  `link` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
