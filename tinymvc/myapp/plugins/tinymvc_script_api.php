@@ -15,7 +15,7 @@ function get_file_content_ssl($fullUrl)
             )
         , 'ssl' => array(
             'verify_peer' => true,
-            'cafile' => "./cacert.pem",
+            'cafile' => __DIR__ . "\..\..\..\cacert.pem",
             'ciphers' => 'HIGH:TLSv1.2:TLSv1.1:TLSv1.0:!SSLv3:!SSLv2',
             'CN_match' => $cn_match,
             'disable_compression' => true,
@@ -23,7 +23,7 @@ function get_file_content_ssl($fullUrl)
         );
 
     $context  = stream_context_create($options);
-    $response = file_get_contents($url, false, $context);
+    $response = @file_get_contents($url, false, $context);
     return $response;
 }
 

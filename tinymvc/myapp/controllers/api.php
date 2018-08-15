@@ -46,7 +46,7 @@ class Api_Controller extends TinyMVC_Controller
         $timestamp_debut = microtime(true);
         foreach($allMangaData as $oneMangaDataFromDb)
         {
-            //break;
+            
             //if($oneMangaDataFromDb["id"] != 56) continue;
             $i++;
             $json_manga = getJsonFromNautiljon($oneMangaDataFromDb["link"]);
@@ -58,6 +58,7 @@ class Api_Controller extends TinyMVC_Controller
             var_dump($json_manga_decode);
             echo '<hr />';
             */
+            
 
             // Edit manga
             if($json_manga_decode != null)
@@ -70,6 +71,7 @@ class Api_Controller extends TinyMVC_Controller
                 $this->manga->edit_manga($oneMangaDataFromDb["id"], $oneMangaDataFromDb["title"], $oneMangaDataFromDb["date"], $oneMangaDataFromDb["status"], $oneMangaDataFromDb["published_tomes"], $oneMangaDataFromDb["owned_tomes"], $oneMangaDataFromDb["buying_tomes"], $oneMangaDataFromDb["price"], $oneMangaDataFromDb["editor"], $oneMangaDataFromDb["type"], $oneMangaDataFromDb["link"]);
             }
             //if($i >= 1) break;
+            //break;
         }
 
         $timestamp_fin = microtime(true);
