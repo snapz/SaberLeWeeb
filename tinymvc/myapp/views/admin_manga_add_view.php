@@ -29,12 +29,37 @@
                 <?php endif; ?>
 
                 <form method="POST">
+                    <!--
                     <div class="form-group row">
                         <label  class="col-2 col-form-label">Lien Nautiljon</label>
                         <div class="col-10">
                             <input class="form-control" type="text" name="link" required>
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                              Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                            </small>
                         </div>
                     </div>
+                    -->
+
+                    <div class="form-group row">
+                        <label  class="col-2 col-form-label">Lien Nautiljon</label>
+                        <div class="col-10">
+
+                            <div class="input-group mb-3">
+                              <input class="form-control" type="text" name="link" required>
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="completeFormForOneMangaByUrl">GET DATA</button>
+                              </div>
+                            </div>
+                            <small id="runingCompletFormApi" class="form-text" style="display:none;color:blue;font-family:Verdana;margin:0 0 0 0;">
+                                <img src="<?=ASSETS_URL?>admin/img/Spinner-1s-50px.gif" />
+                                Utilisation de l'<strong>api en cours</strong>, veuillez patienter...
+                            </small>
+                        </div>
+                    </div>
+
+
+
                     <div class="form-group row">
                         <label  class="col-2 col-form-label">Titre</label>
                         <div class="col-10">
@@ -43,27 +68,6 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Date de sortie</label>
-                        <div class="col-4">
-                            <input class="form-control" type="number" value="2018" min="0" max="9999" name="date-year" required>
-                        </div>
-                        <div class="col-3">
-                            <select class="form-control" name="date-month" required>
-                                <option selected>Month</option>
-                                <option value="00">00</option>
-                                <option value="01">01 - Janvier</option>
-                                <option value="02">02 - Fevrier</option>
-                                <option value="03">03 - Mars</option>
-                                <option value="04">04 - Avril</option>
-                                <option value="05">05 - Mai</option>
-                                <option value="06">06 - Juin</option>
-                                <option value="07">07 - Juillet</option>
-                                <option value="08">08 - Aout</option>
-                                <option value="09">09 - Septembre</option>
-                                <option value="10">10 - Octobre</option>
-                                <option value="11">11 - Novembre</option>
-                                <option value="12">12 - Decembre</option>
-                            </select>
-                        </div>
                         <div class="col-3">
                             <select class="form-control" name="date-day" required>
                                 <option selected>Day</option>
@@ -101,6 +105,27 @@
                                 <option value="31">31</option>
                             </select>
                         </div>
+                        <div class="col-3">
+                            <select class="form-control" name="date-month" required>
+                                <option selected>Month</option>
+                                <option value="00">00</option>
+                                <option value="01">01 - Janvier</option>
+                                <option value="02">02 - Fevrier</option>
+                                <option value="03">03 - Mars</option>
+                                <option value="04">04 - Avril</option>
+                                <option value="05">05 - Mai</option>
+                                <option value="06">06 - Juin</option>
+                                <option value="07">07 - Juillet</option>
+                                <option value="08">08 - Aout</option>
+                                <option value="09">09 - Septembre</option>
+                                <option value="10">10 - Octobre</option>
+                                <option value="11">11 - Novembre</option>
+                                <option value="12">12 - Decembre</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" type="number" value="2018" min="0" max="9999" name="date-year" required>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Status</label>
@@ -109,6 +134,7 @@
                                 <option value="0" selected>En cours..</option>
                                 <option value="1">En attente</option>
                                 <option value="2">Termin&eacute;</option>
+                                <option value="3">Abandonn&eacute;</option>
                             </select>
                         </div>
                     </div>

@@ -37,7 +37,7 @@ DROP TABLE IF EXISTS `manga`;
 CREATE TABLE `manga` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
-  `date` date NOT NULL,
+  `date` VARCHAR(15) NULL DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   `published_tomes` int(11) NOT NULL DEFAULT '0',
   `owned_tomes` int(11) NOT NULL DEFAULT '0',

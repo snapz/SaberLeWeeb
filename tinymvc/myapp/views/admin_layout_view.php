@@ -143,10 +143,54 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Cliquez sur "Rafraichir" pour rafraichir les données concernant les tomes en cours de publication.</div>
+                    <div class="modal-body">
+                        Cliquez sur <strong>Rafraichir</strong> pour rafraichir les données concernant les tomes de la collection.<hr />
+                        <em>Dernière actualisation :</em> <span id="time_last_api_updated">Inconnue</span></strong>
+                    </div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                        <a class="btn btn-primary" href="<?=URL?>/admin/index">Rafraichir</a>
+                        <!--<a class="btn btn-primary" href="<?=URL?>admin/index">Rafraichir</a>-->
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#refreshModalWithApi">Rafraichir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Refresh Modal with api -->
+        <div class="modal fade" id="refreshModalWithApi" tabindex="-1" role="dialog" aria-labelledby="refreshModalWithApiLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="refreshModalLabel">Actualisation des données...</h5>
+                    </div>
+                    <div class="modal-body">
+                        
+                            <p>
+                                <em>Initialisation du processus...</em><br />
+                                Nombre de manga à actualiser : <strong class="apiProcess_totalMangaMax">???</strong><br />
+                                Queue actuelle : <strong><span id="apiProcess_currentMangaDone">0</span>/<span class="apiProcess_totalMangaMax">???</span></strong><br />
+                            </p>
+                            <hr />
+
+                            <span id="apiProcessStatus_annule" style="display:none;"><h5 style="color:red;"><strong>Processus annulée !</strong></h5></span>
+                            <span id="apiProcessStatus_termine" style="display:none;"><h5 style="color:green;"><strong>Processus terminée !</strong></h5></span>
+                            
+                            <span id="apiProcessStatus_encours">
+                                <small id="runingCompletFormApi" class="form-text" style="color:blue;font-family:Verdana;padding:0 0 0 0;">
+                                    <img src="<?=ASSETS_URL?>admin/img/Spinner-1s-50px.gif" />
+                                    Utilisation de l'<strong>api en cours</strong>, veuillez patienter...
+                                </small>
+                            </span>
+
+                            <br />
+                            <div class="alert alert-danger" role="alert">
+                                <u><b>Cette fonction n'est pas encore développée ! (UI : ok)</b></u><br />
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" type="button" data-dismiss="modal">Stoper le processus</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" style="display:none;">Fermer</button>
                     </div>
                 </div>
             </div>
@@ -223,15 +267,21 @@ _\ \ (_| | |_) |  __/ |    | |  __/  \  /\  /  __/  __/ |_) |
                     "iDisplayLength": 25
                 });
             } );
+            var TOKEN_API = "<?=TOKEN_API?>";
         </script>
         <!-- Custom scripts for all pages-->
         <script src="<?=ASSETS_URL?>admin/js/sb-admin.min.js"></script>
+        <script src="<?=ASSETS_URL?>admin/js/snapz-lib.js"></script>
+        <script src="<?=ASSETS_URL?>admin/js/snapz-lastTimestampApiUpdated.js"></script>
         <!-- Change color-->
         <script>
             $('#toggleNavColor').click(function() {
                 $('nav').toggleClass('navbar-dark navbar-light');
                 $('nav').toggleClass('bg-dark bg-light');
                 $('body').toggleClass('bg-dark bg-light');
+            });
+            $(document).ready(function(){  
+                window.phptimestampToDateForApiUpdate(TIMESTAMP_LAST_UPDATE_FROM_API);
             });
         </script>
     </div>

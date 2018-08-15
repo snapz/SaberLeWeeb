@@ -38,12 +38,32 @@
                 <hr />
                 <?php } else { ?>
                 <form method="POST">
+                    <!--
                     <div class="form-group row">
                         <label  class="col-2 col-form-label">Lien Nautiljon</label>
                         <div class="col-10">
                             <input class="form-control" type="text" name="link" required value="<?php echo $manga['link'] ?>">
                         </div>
                     </div>
+                    -->
+
+                    <div class="form-group row">
+                        <label  class="col-2 col-form-label">Lien Nautiljon</label>
+                        <div class="col-10">
+
+                            <div class="input-group mb-3">
+                              <input class="form-control" type="text" name="link" required value="<?php echo $manga['link'] ?>">
+                              <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="completeFormForOneMangaByUrl">GET DATA</button>
+                              </div>
+                            </div>
+                            <small id="runingCompletFormApi" class="form-text" style="display:none;color:blue;font-family:Verdana;margin:0 0 0 0;">
+                                <img src="<?=ASSETS_URL?>admin/img/Spinner-1s-50px.gif" />
+                                Utilisation de l'<strong>api en cours</strong>, veuillez patienter...
+                            </small>
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label  class="col-2 col-form-label">Titre</label>
                         <div class="col-10">
@@ -52,26 +72,6 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Date de sortie</label>
-                        <div class="col-4">
-                            <input class="form-control" type="number" value="<?php echo $manga['year'] ?>" min="0" max="9999" name="date-year" required>
-                        </div>
-                        <div class="col-3">
-                            <select class="form-control" name="date-month" required>
-                                <option value="00" <?php if ( $manga['month'] == "00" ) : ?>selected<?php endif; ?>>00</option>
-                                <option value="01" <?php if ( $manga['month'] == "01" ) : ?>selected<?php endif; ?>>01 - Janvier</option>
-                                <option value="02" <?php if ( $manga['month'] == "02" ) : ?>selected<?php endif; ?>>02 - Fevrier</option>
-                                <option value="03" <?php if ( $manga['month'] == "03" ) : ?>selected<?php endif; ?>>03 - Mars</option>
-                                <option value="04" <?php if ( $manga['month'] == "04" ) : ?>selected<?php endif; ?>>04 - Avril</option>
-                                <option value="05" <?php if ( $manga['month'] == "05" ) : ?>selected<?php endif; ?>>05 - Mai</option>
-                                <option value="06" <?php if ( $manga['month'] == "06" ) : ?>selected<?php endif; ?>>06 - Juin</option>
-                                <option value="07" <?php if ( $manga['month'] == "07" ) : ?>selected<?php endif; ?>>07 - Juillet</option>
-                                <option value="08" <?php if ( $manga['month'] == "08" ) : ?>selected<?php endif; ?>>08 - Aout</option>
-                                <option value="09" <?php if ( $manga['month'] == "09" ) : ?>selected<?php endif; ?>>09 - Septembre</option>
-                                <option value="10" <?php if ( $manga['month'] == "10" ) : ?>selected<?php endif; ?>>10 - Octobre</option>
-                                <option value="11" <?php if ( $manga['month'] == "11" ) : ?>selected<?php endif; ?>>11 - Novembre</option>
-                                <option value="12" <?php if ( $manga['month'] == "12" ) : ?>selected<?php endif; ?>>12 - Decembre</option>
-                            </select>
-                        </div>
                         <div class="col-3">
                             <select class="form-control" name="date-day" required>
                                 <option value="00" <?php if ( $manga['day'] == "00" ) : ?>selected<?php endif; ?>>00</option>
@@ -108,6 +108,26 @@
                                 <option value="31" <?php if ( $manga['day'] == "31" ) : ?>selected<?php endif; ?>>31</option>
                             </select>
                         </div>
+                        <div class="col-3">
+                            <select class="form-control" name="date-month" required>
+                                <option value="00" <?php if ( $manga['month'] == "00" ) : ?>selected<?php endif; ?>>00</option>
+                                <option value="01" <?php if ( $manga['month'] == "01" ) : ?>selected<?php endif; ?>>01 - Janvier</option>
+                                <option value="02" <?php if ( $manga['month'] == "02" ) : ?>selected<?php endif; ?>>02 - Fevrier</option>
+                                <option value="03" <?php if ( $manga['month'] == "03" ) : ?>selected<?php endif; ?>>03 - Mars</option>
+                                <option value="04" <?php if ( $manga['month'] == "04" ) : ?>selected<?php endif; ?>>04 - Avril</option>
+                                <option value="05" <?php if ( $manga['month'] == "05" ) : ?>selected<?php endif; ?>>05 - Mai</option>
+                                <option value="06" <?php if ( $manga['month'] == "06" ) : ?>selected<?php endif; ?>>06 - Juin</option>
+                                <option value="07" <?php if ( $manga['month'] == "07" ) : ?>selected<?php endif; ?>>07 - Juillet</option>
+                                <option value="08" <?php if ( $manga['month'] == "08" ) : ?>selected<?php endif; ?>>08 - Aout</option>
+                                <option value="09" <?php if ( $manga['month'] == "09" ) : ?>selected<?php endif; ?>>09 - Septembre</option>
+                                <option value="10" <?php if ( $manga['month'] == "10" ) : ?>selected<?php endif; ?>>10 - Octobre</option>
+                                <option value="11" <?php if ( $manga['month'] == "11" ) : ?>selected<?php endif; ?>>11 - Novembre</option>
+                                <option value="12" <?php if ( $manga['month'] == "12" ) : ?>selected<?php endif; ?>>12 - Decembre</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <input class="form-control" type="number" value="<?php echo $manga['year'] ?>" min="0" max="9999" name="date-year" required>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Status</label>
@@ -116,6 +136,7 @@
                                 <option value="0" <?php if ( $manga['status'] == "0" ) : ?>selected<?php endif; ?>>En cours..</option>
                                 <option value="1" <?php if ( $manga['status'] == "1" ) : ?>selected<?php endif; ?>>En attente</option>
                                 <option value="2" <?php if ( $manga['status'] == "2" ) : ?>selected<?php endif; ?>>Termin&eacute;</option>
+                                <option value="3" <?php if ( $manga['status'] == "3" ) : ?>selected<?php endif; ?>>Abandonn&eacute;</option>
                             </select>
                         </div>
                     </div>
