@@ -46,7 +46,7 @@ class Api_Controller extends TinyMVC_Controller
         $timestamp_debut = microtime(true);
         foreach($allMangaData as $oneMangaDataFromDb)
         {
-            break;
+            //break;
             //if($oneMangaDataFromDb["id"] != 56) continue;
             $i++;
             $json_manga = getJsonFromNautiljon($oneMangaDataFromDb["link"]);
