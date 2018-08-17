@@ -12,7 +12,7 @@
     {
       
       $("#runingCompletFormApi").show();
-      var posting = $.post( "/api/getJsonFromNautiljonByUrl/" + TOKEN_API, { url: urlOfTheGame } );
+      var posting = $.post( "/index.php/api/getJsonFromNautiljonByUrl/" + TOKEN_API, { url: urlOfTheGame } );
      
       posting.done(function( data ) {
         $("#runingCompletFormApi").hide();
@@ -45,19 +45,28 @@
     if(jsonData.hasOwnProperty('title')) $("input[name='title']").val(jsonData.title);
 
     // Date
-    if(jsonData.hasOwnProperty('date') && jsonData.data != "9999-00-00")
+    if(jsonData.hasOwnProperty('date'))
     {
-      var dateFormated = new Date(jsonData.date);
-      // Jours
-      var formatedDay = ('0' + dateFormated.getDate()).slice(-2);
-      $("select[name='date-day']").val(formatedDay).change();
+      if(jsonData.date != "9999-00-00")
+      {
+        var dateFormated = new Date(jsonData.date);
+        // Jours
+        var formatedDay = ('0' + dateFormated.getDate()).slice(-2);
+        $("select[name='date-day']").val(formatedDay).change();
 
-      // Mois
-      var formatedMonth = ('0' + (dateFormated.getMonth()+1)).slice(-2);
-      $("select[name='date-month']").val(formatedMonth).change();
+        // Mois
+        var formatedMonth = ('0' + (dateFormated.getMonth()+1)).slice(-2);
+        $("select[name='date-month']").val(formatedMonth).change();
 
-      // Année
-      $("input[name='date-year']").val(dateFormated.getFullYear());
+        // Année
+        $("input[name='date-year']").val(dateFormated.getFullYear());
+      }
+      else
+      {
+        $("select[name='date-day']").val('00').change();
+        $("select[name='date-month']").val('00').change();
+        $("input[name='date-year']").val('9999');
+      }
     }
 
     // Status

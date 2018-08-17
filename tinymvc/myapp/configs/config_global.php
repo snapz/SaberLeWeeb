@@ -6,7 +6,7 @@ define('NAME', 'SaberLeWeeb');
 define('BASE_URL', 'http://manga-saber.local/');
 
 /* define if you use rewrite url or not (TRUE if you use, FALSE otherwise) */
-define('REWRITE', TRUE);
+define('REWRITE', false);
 
 /* define the informations for MySQL */
 define('DBHOST', '127.0.0.1');
