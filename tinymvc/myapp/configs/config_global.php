@@ -19,4 +19,8 @@ define('TICKETS_PER_PAGE', 6);
 
 /* token for allow using the api (in url) */
 define('TOKEN_API', 'azerty');
+
+define('USE_EXTERNAL_API', true);
+define('EXTERNAL_API_URL', "http://manga-saber.local/external_api.php");
+define('EXTERNAL_API_TOKEN', "azerty2");
 ?>

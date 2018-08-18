@@ -24,7 +24,11 @@ class Api_Controller extends TinyMVC_Controller
         $url_manga = (isset($_POST['url']) AND !empty($_POST['url'])) ? $_POST['url'] : "NO_URL";
         if($url_manga == "NO_URL") die("No url in POST.");
 
-        $json_manga = getJsonFromNautiljon($url_manga);
+        if(USE_EXTERNAL_API)
+            $json_manga = useExternalApiForGetJson($url_manga);
+        else
+            $json_manga = getJsonFromNautiljon($url_manga);
+
         die($json_manga);
     }
 
@@ -49,7 +53,12 @@ class Api_Controller extends TinyMVC_Controller
             
             //if($oneMangaDataFromDb["id"] != 56) continue;
             $i++;
-            $json_manga = getJsonFromNautiljon($oneMangaDataFromDb["link"]);
+
+            if(USE_EXTERNAL_API)
+                $json_manga = useExternalApiForGetJson($oneMangaDataFromDb["link"]);
+            else
+                $json_manga = getJsonFromNautiljon($oneMangaDataFromDb["link"]);
+
             $json_manga_decode = json_decode($json_manga, true);
 
             /*

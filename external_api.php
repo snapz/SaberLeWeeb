@@ -1,4 +1,14 @@
 <?php
+set_time_limit(0);
+// Config
+define('TOKEN_API', 'azerty2');
+// Verif token
+$token_allowed = (isset($_GET['token']) AND $_GET['token'] == TOKEN_API) ? true : false;
+if(!$token_allowed) die("Not allowed.");
+// Verif url
+$url_manga = (isset($_GET['url']) AND !empty($_GET['url'])) ? urldecode($_GET['url']) : "NO_URL";
+if($url_manga == "NO_URL") die("No url in GET.");
+
 // file_get_content with ssl for get https url :>
 function get_file_content_ssl($fullUrl)
 {
@@ -122,18 +132,5 @@ function getJsonFromNautiljon($link_to_manga)
 	return json_encode($arrayOfManga, JSON_UNESCAPED_UNICODE );
 }
 
-function updateFileWithTimestampOfApi()
-{
-    $my_file = __DIR__ . '\..\..\..\assets\admin\js\snapz-lastTimestampApiUpdated.js';
-    $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
-    $data = 'var TIMESTAMP_LAST_UPDATE_FROM_API = '.time().';';
-    fwrite($handle, $data);
-    fclose($handle);
-}
-
-function useExternalApiForGetJson($link_to_manga)
-{
-	return file_get_contents(EXTERNAL_API_URL."?token=".EXTERNAL_API_TOKEN."&url=".urlencode($link_to_manga));
-}
-
+die(getJsonFromNautiljon($url_manga));
 ?>
